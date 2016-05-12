@@ -1,0 +1,27 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>
+            <span>Material Todo</span>
+        </h2>
+        <span flex></span>
+        <md-button ui-sref-active="login-btn" ui-sref="login" class=" login-btn">
+            Sign in
+        </md-button>
+        <md-button ui-sref-active="login-btn" ui-sref="signup" class=" login-btn">
+            Sign Up
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content class="login-card md-whiteframe-24dp">
+    <form>
+        <md-input-container class="md-block">
+            <label>Email</label>
+            <input type="email" required ng-model="user.userName">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input required type="password" ng-model="user.password">
+        </md-input-container>
+        <button ng-disabled="!user.userName || !user.password" ng-click="loginAccount()" style="float: right" class="md-button md-primary md-raised">Login</button>
+    </form>
+</md-content>

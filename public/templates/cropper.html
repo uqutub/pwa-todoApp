@@ -1,0 +1,24 @@
+<md-dialog layout="column" layout-align="center center" layout-padding>
+
+
+    <div ng-show="cropper.croppedImage">
+        <canvas width="500" height="300" id="canvas" image-cropper image="cropper.sourceImage"
+                cropped-image="cropper.croppedImage" crop-width="200" crop-height="200" keep-aspect="true"
+                touch-radius="30">
+        </canvas>
+    </div>
+
+    <div>
+        <ng-md-icon onclick="this.nextElementSibling.click()" style="fill: #4752A5" ng-hide="cropper.croppedImage"
+                    icon="file_upload" size="100"></ng-md-icon>
+        <input ng-show="0" type="file" id="inputFileToLoad" img-cropper-fileread image="cropper.sourceImage"/>
+    </div>
+
+
+    <!--<div ng-show="cropper.croppedImage!=null"><img ng-src="{{cropper.croppedImage}}"/></div>-->
+
+    <div layout="row">
+        <button ng-show="cropper.croppedImage" class="md-button md-primary" ng-click="saveImg(true)">Done</button>
+        <button class="md-button md-primary" ng-click="saveImg(false)">Cancel</button>
+    </div>
+</md-dialog>

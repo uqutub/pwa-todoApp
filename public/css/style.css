@@ -1,0 +1,138 @@
+body {
+    height: 100%;
+}
+
+md-content {
+     height: 100%;
+}
+
+md-list{
+    height: 60%;
+}
+.header {
+    max-height: 40%;
+    width: 100%;
+    /*height: 300px;*/
+    background: url("../img/top-bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.img-box {
+    width: 100%;
+    padding: 1% 0 0 5%;
+    border-radius: 100%;
+}
+
+.img-box img {
+    outline: none;
+    float: left;
+    border-radius: 100%;
+    width: 100%;
+}
+
+.img-box h1 {
+    /* width: 100%;*/
+    padding-left: 5%;
+    color: #fff;
+}
+
+.img-box .md-title {
+    padding-left: 5%;
+    color: #61d3ff;
+}
+
+.task-detail div {
+    color: #fff;
+    padding: 2% 0 2% 0;
+    background: #61d3ff;
+}
+
+.task-detail h1 {
+    margin: 0 0 0 0;
+    /*font-size: 300%;*/
+}
+
+.task-detail p {
+    margin: 0 0 0 0;
+    /* font-size: 115%;*/
+}
+
+.menu-header {
+    width: 100%;
+    background: url("../img/menu-bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.menu-header .img-box {
+    width: 100%;
+    padding: 40% 0 10% 5%;
+    border-radius: 100%;
+}
+
+.menu-header .img-box img {
+    border-radius: 100%;
+    width: 25%;
+}
+
+.menu-header .img-box h1 {
+    padding-left: 5%;
+    font-size: 18px;
+    color: #fff;
+}
+
+.md-whiteframe-8dp {
+    padding: 20%;
+    height: 30%;
+    width: 50%;
+}
+
+.login-card {
+    border-radius: 0;
+    max-height: 50%;
+    color: #fff;
+    /* background: rgba(233, 30, 99, .2);*/
+    box-shadow: none;
+    padding: 5% 5% 5% 5%;
+    margin: 5% auto 0;
+    width: 33%;
+}
+
+.login-btn {
+    background: #ffffff;
+}
+
+.login-btn span {
+    color: #2196F3
+}
+
+/* Scroll bar Css*/
+
+/* For the "inset" look only */
+html {
+    overflow: auto;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.md-subheader .md-subheader-inner {
+    padding: 0 0 0 5%;
+}
+
+.p-nav-list {
+    height: 90%;
+}
+
+.nav-list {
+    height: 100% !important;
+}
+
+.strike {
+    
+    text-decoration: line-through;
+    
+}

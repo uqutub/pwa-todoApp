@@ -1,0 +1,39 @@
+<md-toolbar class="md-primary">
+    <div class="md-toolbar-tools">
+        <h2>
+            <span>Material Todo</span>
+        </h2>
+        <span flex></span>
+        <md-button ui-sref-active="login-btn" ui-sref="login" class=" login-btn">
+            Sign in
+        </md-button>
+        <md-button ui-sref-active="login-btn" ui-sref="signup" class="login-btn">
+            Sign Up
+        </md-button>
+    </div>
+</md-toolbar>
+<md-content class="login-card md-whiteframe-24dp">
+    <form>
+        <div layout="row">
+            <md-input-container flex class="md-block">
+                <label>First Name</label>
+                <input required type="text" ng-model="user.firstName">
+            </md-input-container>
+            <md-input-container flex class="md-block">
+                <label>Last Name</label>
+                <input required type="text" ng-model="user.lastName">
+            </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+            <label>Email</label>
+            <input required type="email" ng-model="user.userName">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input required type="password" ng-model="user.password">
+        </md-input-container>
+        <button ng-disabled="!user.firstName || !user.lastName || !user.userName || !user.password"
+                ng-click="createAccount()" style="float: right" class="md-button md-primary md-raised">Sign up
+        </button>
+    </form>
+</md-content>

@@ -1,0 +1,31 @@
+{
+  "name": "pwa-todo-app",
+  "version": "0.0.1",
+  "description": "Progressive Web App - Todo App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uqutub/pwa-todoApp.git"
+  },
+  "keywords": [
+    "PWA",
+    "Progress",
+    "Web",
+    "App"
+  ],
+  "author": "Yousuf Qutubuddin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uqutub/pwa-todoApp/issues"
+  },
+  "homepage": "https://github.com/uqutub/pwa-todoApp#readme",
+  "devDependencies": {
+    "sw-precache": "^3.1.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
