@@ -1,39 +1,54 @@
 // Register Service Worker
 if ('serviceWorker' in navigator) {
 
+    var ref = new Firebase("https://pwa-todoapp.firebaseio.com/");
+
     console.log('Service Worker is supported');
-    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-        
+
+    navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+
         console.log(':^)', registration);
-        
+
         // SUBSCRIBING FOR PUSH NOTIFICATIONS
-        navigator.serviceWorker.ready.then(function(reg){
-        reg.pushManager.subscribe({userVisibleOnly: true}).then(function(subcription){
-            console.log('Subcription: ', subcription.toJSON());
-            
-            // The subcription was successful
-            var user = localStorage.getItem("userKey");
-            if(user) {
-                var ref = new Firebase("https://pwa-todoapp.firebaseio.com/");
-                ref.child("user-push-notification").child(user).set(subcription.toJSON(), function(err){
+        navigator.serviceWorker.ready.then(function (reg) {
+            reg.pushManager.subscribe({ userVisibleOnly: true }).then(function (subcription) {
+                console.log('Subcription: ', subcription.toJSON());
+
+                // The subcription was successful
+                var user = localStorage.getItem("userKey");
+                if (user) {
+                    ref.child("user-push-notification").child(user).set(subcription.toJSON(), function (err) {
+                        if (err) {
+                            console.log('err on firebase: ', err);
+                        }
+
+                        console.log('updated in firebase');
+                    });
+                }
+
+            }).catch(function (e) {
+                // Permission denied or an error occurred
+                console.log('Permission denied  :^( ');
+
+                ref.child("user-errors").child('on-permission').push(e.toJSON(), function (err) {
                     console.log('FB: ', err);
                 });
-            }
-            
-        }).catch(function(e){
-                // Permission denied or an error occurred
-                console.log('Permission denied  :^( '); 
-           }); 
+            });
         });
-        
+
         // registration.pushManager.subscribe({userVisibleOnly: true}).then(function(subscription) {
         //     console.log('subscription:', subscription.toJSON());
         // });
-        
-    }).catch(function(error) {
+
+    }).catch(function (error) {
         console.log(':^(', error);
+
+        ref.child("user-errors").child('on-registration').push(error.toJSON(), function (err) {
+            console.log('FB: ', err);
+        });
+
     });
-    
+
 } //if serviceWorker
 
 
@@ -46,7 +61,7 @@ angular.module("TodoApp", ["ngMaterial", "ngMdIcons", "firebase", "angular-img-c
 
 
                 var userKey = localStorage.getItem("userKey");
-                
+
                 // checking if user authenticated
                 if (toState.name === "dashboard" && !userKey) {
                     event.preventDefault();
